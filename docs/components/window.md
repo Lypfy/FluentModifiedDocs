@@ -9,11 +9,11 @@ The **Window** is the primary frame container that hosts all your Tabs, Sections
 Initialize a window via `Fluent:CreateWindow({...})`:
 
 ```lua
-local Fluent = loadstring(game:HttpGet("https://github.com/StyearX/Fluent-modded/releases/download/1.5/main.lua"))()
+local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/Lypfy/FluentModified/main/dist/main.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "GoonWares",
-    SubTitle = "Made by: StyearX",
+    Title = "FluentModified",
+    SubTitle = "by Lypfy",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 480),
     Acrylic = true,

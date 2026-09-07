@@ -76,7 +76,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/StyearX/Fluent-modded' }
+      { icon: 'github', link: 'https://github.com/Lypfy/FluentModified' }
     ],
 
     footer: {

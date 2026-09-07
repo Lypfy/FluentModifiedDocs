@@ -7,7 +7,7 @@ The **InterfaceManager** provides automatic controls for theme switching, acryli
 ## Setup
 
 ```lua
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/StyearX/Fluent-modded/main/Addons/InterfaceManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/Lypfy/FluentModified/main/Addons/InterfaceManager.lua"))()
 
 InterfaceManager:SetLibrary(Fluent)
 InterfaceManager:SetFolder("MyScriptHub/Interface")

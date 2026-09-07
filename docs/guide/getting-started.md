@@ -9,9 +9,9 @@ Welcome to the **FluentPro** documentation. FluentPro is a modern, responsive, a
 To load FluentPro into your script, use `game:HttpGet` and `loadstring`:
 
 ```lua
-local Fluent = loadstring(game:HttpGet("https://github.com/StyearX/Fluent-modded/releases/download/1.5/main.lua"))()
-local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/StyearX/Fluent-modded/main/Addons/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/StyearX/Fluent-modded/main/Addons/InterfaceManager.lua"))()
+local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/Lypfy/FluentModified/main/dist/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/Lypfy/FluentModified/main/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/Lypfy/FluentModified/main/Addons/InterfaceManager.lua"))()
 ```
 
 ---
@@ -21,9 +21,9 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 Here is a full working example demonstrating a window, tabs, toggles, sliders, and notification alerts:
 
 ```lua
-local Fluent = loadstring(game:HttpGet("https://github.com/StyearX/Fluent-modded/releases/download/1.5/main.lua"))()
-local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/StyearX/Fluent-modded/main/Addons/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/StyearX/Fluent-modded/main/Addons/InterfaceManager.lua"))()
+local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/Lypfy/FluentModified/main/dist/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/Lypfy/FluentModified/main/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/Lypfy/FluentModified/main/Addons/InterfaceManager.lua"))()
 
 -- 1. Create Window
 local Window = Fluent:CreateWindow({

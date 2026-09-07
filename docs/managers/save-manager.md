@@ -7,7 +7,7 @@ The **SaveManager** handles profile saving, configuration auto-loading, and UI s
 ## Setup
 
 ```lua
-local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/StyearX/Fluent-modded/main/Addons/SaveManager.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/Lypfy/FluentModified/main/Addons/SaveManager.lua"))()
 
 SaveManager:SetLibrary(Fluent)
 SaveManager:IgnoreThemeSettings()
