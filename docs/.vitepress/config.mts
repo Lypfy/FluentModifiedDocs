@@ -1,10 +1,10 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: "FluentPro Docs",
+  title: "FluentModified Docs",
   description: "A modern, dark-tech UI library for Roblox scripts with 19+ themes and acrylic blur.",
   lang: 'en-US',
-  
+
   markdown: {
     theme: {
       light: 'github-dark',
@@ -15,7 +15,7 @@ export default defineConfig({
 
   themeConfig: {
     siteTitle: "FluentPro",
-    
+
     search: {
       provider: 'local'
     },
@@ -23,7 +23,7 @@ export default defineConfig({
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },
       { text: 'Components', link: '/components/window' },
-      { text: 'Elements', link: '/elements/slider' },
+      { text: 'Elements', link: '/elements/button' },
       { text: 'Themes', link: '/guide/themes' },
       { text: 'Managers', link: '/managers/save-manager' }
     ],
