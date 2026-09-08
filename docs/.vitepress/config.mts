@@ -56,9 +56,10 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'Button', link: '/elements/button' },
+          { text: 'Toggle', link: '/elements/toggle' },
+          { text: 'Checkbox', link: '/elements/checkbox' },
           { text: 'Slider', link: '/elements/slider' },
           { text: 'Dropdown', link: '/elements/dropdown' },
-          { text: 'Checkbox & Toggle', link: '/elements/checkbox' },
           { text: 'Collapsible Section', link: '/elements/collabsiblesection' },
           { text: 'Divider & Space', link: '/elements/divider' },
           { text: 'Audio Player', link: '/elements/audio' },

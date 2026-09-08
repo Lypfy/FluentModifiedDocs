@@ -1,30 +1,18 @@
-# Toggle & Checkbox
+# Checkbox
 
-FluentPro provides two styles of binary boolean controls: **Toggle** (switch style) and **Checkbox** (square checkmark style).
+The **Checkbox** element provides a modern, rounded square checkbox with checkmark animations for managing binary on/off settings.
 
----
-
-## 1. Toggle (`:AddToggle`)
-
-Renders a sleek animated iOS/Fluent switch control.
-
-```lua
-local Toggle = Tabs.Main:AddToggle("AutoFarmToggle", {
-    Title = "Auto Farm Mobs",
-    Description = "Automatically attacks the nearest enemy in range",
-    Default = false,
-    Callback = function(State)
-        _G.AutoFarm = State
-        print("AutoFarm is now:", State and "ON" or "OFF")
-    end
-})
-```
+::: tip Toggle vs Checkbox
+FluentPro offers two styles for boolean settings:
+- **[Toggle](/elements/toggle)**: Pill-style sliding switch (recommended for feature toggles).
+- **[Checkbox](/elements/checkbox)**: Rounded square box with a checkmark icon.
+:::
 
 ---
 
-## 2. Checkbox (`:AddCheckbox`)
+## Creation
 
-Renders a modern rounded checkbox with checkmark animations.
+A Checkbox is created on any **Tab** or **Section** using `:AddCheckbox(Index, Config)`:
 
 ```lua
 local Checkbox = Tabs.Main:AddCheckbox("EspBox", {
@@ -32,7 +20,7 @@ local Checkbox = Tabs.Main:AddCheckbox("EspBox", {
     Description = "Draw bounding boxes around targets",
     Default = true,
     Callback = function(State)
-        print("ESP Box toggled:", State)
+        print("ESP Boxes:", State and "ENABLED" or "DISABLED")
     end
 })
 ```
@@ -41,52 +29,68 @@ local Checkbox = Tabs.Main:AddCheckbox("EspBox", {
 
 ## Configuration Reference
 
-Referenced directly from `src/Elements/Toggle.lua` and `src/Elements/Checkbox.lua`:
+Referenced directly from `src/Elements/Checkbox.lua`:
 
 | Property | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| `Title` | `string` | <span class="badge-required">Yes</span> | — | Element header title (`assert` in source) |
-| `Description` | `string` | <span class="badge-optional">No</span> | `nil` | Subtitle description text |
-| `Default` | `boolean` | <span class="badge-optional">No</span> | `false` | Initial boolean state |
-| `Callback` | `function(state)`| <span class="badge-optional">No</span> | `nil` | Fired when value changes |
+| `Index` | `string` | **Yes** | — | Unique flag identifier used to register the element in `Fluent.Options`. (First argument) |
+| `Title` | `string` | **Yes** | — | Primary header label (`assert` in source). |
+| `Description` | `string` | No | `nil` | Secondary description displayed below the title. |
+| `Default` | `boolean` | No | `false` | Initial checked state. |
+| `Callback` | `function(state)` | No | `function() end` | Function executed safely via `SafeCallback` whenever toggled. |
 
 ---
 
 ## Methods & Properties
 
-Both Toggle and Checkbox instances return identical APIs:
+The checkbox instance returned by `:AddCheckbox()` exposes the following:
 
 ### Properties
-- `Element.Value` (`boolean`): The current boolean state.
-- `Element.Type` (`"Toggle"` \| `"Checkbox"`): The element type.
-- `Element.Frame` (`Frame`): The underlying Roblox Frame.
 
-### `Element:SetValue(boolean)`
-Programmatically updates the switch state and executes callbacks:
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `Checkbox.Value` | `boolean` | The current boolean state (`true` or `false`). |
+| `Checkbox.Type` | `string` | Always `"Checkbox"`. |
+| `Checkbox.Frame` | `TextButton` | The underlying interactive Roblox `TextButton` instance. |
+
+---
+
+### `Checkbox:SetValue(boolean)`
+Programmatically updates the checkbox state, updates theme fill and checkmark icon transparency, and invokes both `Callback` and `OnChanged` listeners:
 
 ```lua
-Toggle:SetValue(true)
+Checkbox:SetValue(false)
 ```
 
-### `Element:OnChanged(callback)`
-Registers a listener that triggers on any state change. Immediately fires once with current state:
+---
+
+### `Checkbox:OnChanged(callback)`
+Registers a listener that triggers on any state change. Immediately executes once with the initial state upon binding:
 
 ```lua
-Toggle:OnChanged(function(State)
-    print("State changed:", State)
+Checkbox:OnChanged(function(State)
+    print("Checkbox state changed:", State)
 end)
 ```
 
-### `Element:SetTitle(text)` / `Element:SetDesc(text)`
+---
+
+### `Checkbox:SetTitle(text)` / `Checkbox:SetDesc(text)`
 Dynamically modifies the title or description text at runtime:
 
 ```lua
-Toggle:SetTitle("Updated Name")
-Toggle:SetDesc("Updated Description")
+Checkbox:SetTitle("Updated Name")
+Checkbox:SetDesc("Updated Description")
 ```
 
-### `Element:Destroy()`
-Removes the element from UI and unregisters it from `Fluent.Options`.
+---
+
+### `Checkbox:Destroy()`
+Removes the checkbox from the UI container and unregisters it from `Fluent.Options`:
+
+```lua
+Checkbox:Destroy()
+```
 
 ---
 
@@ -94,8 +98,8 @@ Removes the element from UI and unregisters it from `Fluent.Options`.
 
 ```lua
 -- Read current boolean
-local isFarming = Fluent.Options.AutoFarmToggle.Value
+local isEnabled = Fluent.Options.EspBox.Value
 
--- Set value
-Fluent.Options.AutoFarmToggle:SetValue(false)
+-- Programmatically set state
+Fluent.Options.EspBox:SetValue(true)
 ```
